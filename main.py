@@ -1,18 +1,21 @@
+'''
+Homework
+'''
 import pandas as pd
 import matplotlib.pyplot as plt
 
 Laptop_Data = pd.read_csv('Cleaned_Laptop_data.csv')
 print(Laptop_Data.to_string())
 
-Intel_proc_count = 0
-AMD_proc_count = 0
+intel_count = 0
+amd_count = 0
 for i in range(len(Laptop_Data.index)):
     if Laptop_Data.iloc[i]['processor_brand'] == 'Intel':
-        Intel_proc_count += 1
+        intel_count += 1
     if Laptop_Data.iloc[i]['processor_brand'] == 'AMD':
-        AMD_proc_count += 1
+        amd_count += 1
 group = ['Intel', 'AMD']
-both_proc = [Intel_proc_count, AMD_proc_count]
+both_proc = [intel_count, amd_count]
 plt.title('Общее количество процессоров')
 plt.bar(group, both_proc)
 plt.show()
